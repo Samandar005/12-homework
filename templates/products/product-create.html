@@ -1,0 +1,37 @@
+  {% extends 'base.html' %}
+  {% block title %} Yangi Mahsulot Qo'shish {% endblock %}
+
+
+  {% block content %}
+        <h1>Yangi Mahsulot Qo'shish</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="product_name" class="form-label">Mahsulot nomi</label>
+            <input type="text" name="product_name" class="form-control" id="product_name" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Mahsulot tavsifi</label>
+            <textarea class="form-control" name="description" id="description" rows="3" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Narxi</label>
+            <input type="number" class="form-control" name="price" id="price" required>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Mahsulot rasmi</label>
+            <input type="file" class="form-control" name="image" id="image" accept="image/*" required>
+        </div>
+        <div class="mb-3">
+            <label for="category" class="form-label">Kategoriya</label>
+            <select class="form-select" name="category" id="category" required>
+                <option value="">Kategoriyani tanlang</option>
+                <option value="1">Elektronika</option>
+                <option value="2">Kiyim-kechak</option>
+                <option value="3">Oziq-ovqat</option>
+                <option value="4">Uy-ro'zg'or buyumlari</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Mahsulotni qo'shish</button>
+    </form>
+  {% endblock %}

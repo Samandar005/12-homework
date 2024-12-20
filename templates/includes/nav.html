@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">Mening Do'konim</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link {% if request.path == '/' %}text-primary fw-bold{% endif %}" href="{% url 'home' %}">Bosh Sahifa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if 'products:list' in request.path %}text-primary fw-bold{% endif %}" href="{% url 'products:list' %}">Mahsulotlar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if 'products:create' in request.path %}text-primary fw-bold{% endif %}" href="{% url 'products:create' %}">Yangi Mahsulot</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if 'products:about' in request.path %}text-primary fw-bold{% endif %}" href="{% url 'products:about' %}">Biz Haqimizda</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}Bosh Sahifa {% endblock %}
+
+   {% block content %}
+        <h1>Xush kelibsiz!</h1>
+            <p>Bu bizning onlayn do'konimizning bosh sahifasi.</p>
+            <a href="{% url 'products:list' %}" class="btn btn-primary">Mahsulotlarni Ko'rish</a>
+   {% endblock %}

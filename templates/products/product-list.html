@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Mahsulotlar Ro'yxati {% endblock %}
+
+  {% block content %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a href="{% url 'products:category' '1' %}" class="nav-link {% if '1' in request.path %}active{% endif %}">Elektronika</a>
+    </li>
+    <li class="nav-item">
+        <a href="{% url 'products:category' '2' %}" class="nav-link {% if '2' in request.path %}active{% endif %}">Kiyim-kechak</a>
+    </li>
+    <li class="nav-item">
+        <a href="{% url 'products:category' '3' %}" class="nav-link {% if '3' in request.path %}active{% endif %}">Oziq-ovqat</a>
+    </li>
+    <li class="nav-item">
+        <a href="{% url 'products:category' '4' %}" class="nav-link {% if '4' in request.path %}active{% endif %}">Uy-ro'zg'or buyumlari</a>
+    </li>
+</ul>
+        <h1>Mahsulotlar Ro'yxati</h1>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            {% for product in products %}
+            <div class="card">
+                    <img src="{{ product.image.url }}" class="card-img-top" alt="student">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.product_name }}</h5>
+                    <p class="card-text">{{ product.description }}</p>
+                    <a href="{{ product.get_detail_url }}" class="btn btn-primary">Batafsil</a>
+                    {% empty %}
+                    <h5>Not Found!</h5>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+  {% endblock %}
